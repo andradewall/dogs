@@ -13,8 +13,8 @@ function App() {
         <Home />
         <Footer />
         <Routes>
-          <Route path='/' component={<Home />} />
-          <Route path='/login' component={<Login />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/login/*' element={<Login />} />
         </Routes>
       </BrowserRouter>
     </div>
