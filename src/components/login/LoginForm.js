@@ -13,22 +13,24 @@ const LoginForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
 
-    fetch('https://dogsapi.origamid.dev/json/jwt-auth/v1/token', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        //  username, password
-      }),
-    })
-      .then((res) => {
-        console.log(res)
-        return res.json()
+    if (username.validate() && password.validate()) {
+      fetch('https://dogsapi.origamid.dev/json/jwt-auth/v1/token', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          //  username, password
+        }),
       })
-      .then((json) => {
-        console.log(json)
-      })
+        .then((res) => {
+          console.log(res)
+          return res.json()
+        })
+        .then((json) => {
+          console.log(json)
+        })
+    }
   }
 
   return (
