@@ -1,11 +1,15 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import LoginForm from './LoginForm'
 import LoginSignup from './LoginSignup'
 import LoginLostPassword from './LoginLostPassword'
 import LoginResetPassword from './LoginResetPassword'
+import { UserContext } from '../../UserContext'
 
 const Login = () => {
+  const { isLogged } = useContext(UserContext)
+
+  if (isLogged === true) return <Navigate to='/account' />
   return (
     <div>
       <Routes>
